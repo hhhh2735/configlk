@@ -1402,8 +1402,8 @@ if (ua.includes("Locket")) {
     obj.entries.widget_frame_enabled = "true";
     obj.entries.widget_frame_event = JSON.stringify([
         {
-            id: "BuiHai_Gold_V4",
-            uid: "BuiHai_Gold_V4",
+            id: "BuiHai_Gold_V5",
+            uid: "BuiHai_Gold_V5",
             url: "https://cdn.jsdelivr.net/gh/hhhh2735/configlk@main/anhwigget.png",
             image_url: "https://cdn.jsdelivr.net/gh/hhhh2735/configlk@main/anhwigget.png",
             use_local_time_zone: true,
