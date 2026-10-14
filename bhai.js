@@ -1,8 +1,7 @@
 // ============================================================
-// Locket Remote Config Rewrite
+// Locket Remote Config Rewrite (Bui Hai Ultimate V5)
 // Endpoint: firebaseremoteconfig.googleapis.com
-// Dùng cho: Loon / Quantumult X / Surge / Shadowrocket
-// Tác giả: Bui Hai
+// Tác giả: Bui Hai (Merged with V5 Engine)
 // ============================================================
 
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"] || "";
@@ -10,6 +9,71 @@ var obj = JSON.parse($response.body);
 
 if (ua.includes("Locket")) {
     obj.Attention = "Bản quyền thuộc về Bui Hai!";
+
+    // === ĐỘNG CƠ V5: Ép cờ boolean mở khóa video, album & gold ===
+    var boolKeys = [
+        "internal_camera_roll_video_upload_enabled",
+        "camera_roll_preview_enabled",
+        "longer_video_enabled",
+        "longer_videos_enabled",
+        "video_sound_enabled",
+        "camera_microphone_enabled",
+        "microphone_enabled",
+        "gold_member",
+        "gold_membership"
+    ];
+    boolKeys.forEach(function (key) { obj.entries[key] = "true"; });
+
+    // === ĐỘNG CƠ V5: Ép thời lượng video tối đa 30 giây ở tầng gốc ===
+    var durationKeys = ["gold_max_duration", "goldMaxDuration", "max_video_duration", "video_max_duration"];
+    durationKeys.forEach(function (key) { obj.entries[key] = "30.0"; });
+
+    // === ĐỘNG CƠ V5: Huy hiệu Gold profile ===
+    var badgeFlags = [
+        "profile_gold_badge",
+        "locket_gold_badge",
+        "profile_badge_visible",
+        "profile_badge_enabled",
+        "gold_badge_profile_menu",
+        "locket_gold_badge_small",
+        "gold_membership_card",
+        "profile_badge"
+    ];
+    badgeFlags.forEach(function (key) { obj.entries[key] = "true"; });
+
+    // === Cấu hình Pop-up Chào Mừng (Bui Hai Custom Popup) ===
+    var popupImage = "https://cdn.upanhlaylink.com/i/RuYKzIiU.png"; // Link ảnh hiển thị trong popup của ông
+
+    var welcomePopup = {
+      "tag": "LOCKET GOLD",
+      "tag_gradient": true,
+      "title": "Lên Gold rùi nha 😎",
+      "subtitle": "Bản quyền bởi Bùi Hải Đẹp Zai",
+      "feature_set": [{
+        "title": "Đã kích hoạt Locket Gold!",
+        "body": "Đã mở khóa toàn bộ tính năng: Quay video 30s, tải video từ thư viện, âm thanh video, khung widget và full caption.",
+        "imageURL": popupImage,
+        "imageUrl": popupImage,
+        "image_url": popupImage,
+        "heroImageUrl": popupImage,
+        "hero_image_url": popupImage,
+        "thumbnail_url": popupImage
+      }],
+      "imageURL": popupImage,
+      "imageUrl": popupImage,
+      "image_url": popupImage,
+      "heroImageUrl": popupImage,
+      "hero_image_url": popupImage,
+      "campaign": "bui_hai_gold_welcome_popup",
+      "start_at": "2024-01-01T00:00:00",
+      "end_at": "2030-12-31T23:59:59",
+      "use_local_time_zone": true
+    };
+
+    // Ép chuỗi JSON Pop-up vào Remote Config
+    obj.entries.feature_discovery_popup_config = JSON.stringify(welcomePopup);
+
+    // Cấu hình Feature Gates
     obj.entries.feature_gates = JSON.stringify({
         app_icon_picker: "enabled",
         camera_roll: "enabled",
@@ -17,6 +81,7 @@ if (ua.includes("Locket")) {
         locket_views: "enabled",
         long_captions: "enabled",
         longer_video: "enabled",
+        longerVideo: "enabled",
         video_upload: "enabled",
         gallery_video: "enabled",
         unlimited_friends: "enabled",
@@ -27,6 +92,19 @@ if (ua.includes("Locket")) {
         custom_widget_frames: "enabled",
         streak_recovery: "enabled",
     });
+
+    // === ĐỘNG CƠ V5: Đồng bộ cấu hình camera giới hạn 30s trực tiếp vào object camera ===
+    try {
+        var camera = obj.entries.camera ? JSON.parse(obj.entries.camera) : {};
+        if (camera && typeof camera === "object" && !Array.isArray(camera)) {
+            camera.gold_max_duration = 30;
+            camera.goldMaxDuration = 30;
+            camera.gallery_video = true;
+            camera.video = true;
+            obj.entries.camera = JSON.stringify(camera);
+        }
+    } catch (e2) { }
+
     obj.entries.history_ads_mode = "off";
     obj.entries.history_ads_prefetch_count = "0";
     obj.entries.history_ads_prefetch_immediate = "false";
@@ -57,6 +135,8 @@ if (ua.includes("Locket")) {
     obj.entries.music_caption_enabled = "true";
     obj.entries.music_caption_song_preview_enabled = "true";
     obj.entries.link_caption_link_enabled = "true";
+
+    // Giữ nguyên toàn bộ kho caption tự chế của Hải ở đây
     obj.entries.overlay_items = JSON.stringify([
         {
             section: "🎨 General",
@@ -269,7 +349,7 @@ if (ua.includes("Locket")) {
                         icon: { data: "🌷", type: "emoji" },
                         max_lines: 1,
                         text: "Địt Cụ Locket",
-                        localized_text: { en: "Feeling Cute", vn: "Cảm thấy dthw" },
+                        localized_text: { en: "Địt Cụ Locket", vn: "Địt Cụ Locket" },
                         text_color: "#FFFFFFE5",
                         type: "static_content",
                     },
@@ -293,7 +373,7 @@ if (ua.includes("Locket")) {
                         icon: { data: "💍", type: "emoji" },
                         max_lines: 1,
                         text: "Thìn Đẹp",
-                        localized_text: { en: "Wedding Time!", vn: "Thìn Đẹp!" },
+                        localized_text: { en: "Thìn Đẹp", vn: "Thìn Đẹp" },
                         text_color: "#FFFFFFE6",
                         type: "static_content",
                     },
@@ -306,7 +386,7 @@ if (ua.includes("Locket")) {
                         icon: { data: "🇻🇳", type: "emoji" },
                         max_lines: 1,
                         text: "Nứng Quá!",
-                        localized_text: { en: "Feeling Happy", vn: "Nứng Quá!" },
+                        localized_text: { en: "Nứng Quá!", vn: "Nứng Quá!" },
                         text_color: "#FFFFFFE6",
                         type: "static_content",
                     },
@@ -319,7 +399,7 @@ if (ua.includes("Locket")) {
                         icon: { data: "☕", type: "emoji" },
                         max_lines: 1,
                         text: "Đi chơi không ae",
-                        localized_text: { en: "Coffee Time!", vn: "Đi chơi không ae" },
+                        localized_text: { en: "Đi chơi không ae", vn: "Đi chơi không ae" },
                         text_color: "#FFFFFFE6",
                         type: "static_content",
                     },
@@ -332,7 +412,7 @@ if (ua.includes("Locket")) {
                         icon: { data: "🐍", type: "emoji" },
                         max_lines: 1,
                         text: "Ốm Em Thiêu",
-                        localized_text: { en: "Snake Vibes", vn: "Ốm Em Thiêu" },
+                        localized_text: { en: "Ốm Em Thiêu", vn: "Ốm Em Thiêu" },
                         text_color: "#FFFFFFE6",
                         type: "static_content",
                     },
@@ -344,8 +424,8 @@ if (ua.includes("Locket")) {
                         background: { colors: ["#FFF9C4", "#F8BBD0"] },
                         icon: { data: "🍦", type: "emoji" },
                         max_lines: 1,
-                        text: "Mixue Time!",
-                        localized_text: { en: "Mixue Time!", vn: "Giờ Mixue!" },
+                        text: "Lạy Bố",
+                        localized_text: { en: "Lạy Bố", vn: "Lạy Bố" },
                         text_color: "#000000E6",
                         type: "static_content",
                     },
@@ -1201,6 +1281,7 @@ if (ua.includes("Locket")) {
             ],
         }
     ]);
+
     obj.entries.gallery_video = "true";
     obj.entries.video_upload = "true";
     obj.entries.camera_roll = JSON.stringify({
@@ -1288,7 +1369,6 @@ if (ua.includes("Locket")) {
         streak_visualization_minimum_count: 2,
         overlay_indicators: { location: true, music: true, static_content: true, weather: true, },
     });
-    obj.entries.journal_activity_bar_enabled = "true";
     obj.entries.sentry_sample_rate = "0";
     obj.entries.sentry_network_tracing = "false";
     obj.entries.sentry_performance_tracking = "false";
@@ -1299,32 +1379,6 @@ if (ua.includes("Locket")) {
     obj.entries.history_cache_age_days = "1000";
     obj.entries.user_cache_max_age_sec = "691200";
     obj.entries.friends_cache_max_age_sec = "2592000";
-    obj.entries.friends_sheet_locket_count_config = JSON.stringify({
-        items: [
-            { threshold: 0, icon_name: "heart" },
-            { threshold: 1, icon_name: "heart.fill" },
-            { threshold: 10, emoji: "🤍" },
-            { threshold: 100, emoji: "💛" },
-            { threshold: 500, emoji: "❤️‍🔥" },
-            { threshold: 1000, emoji: "🌟🫶🌟" },
-            { threshold: 2000, emoji: "✨💟✨" },
-            { threshold: 5000, emoji: "⚡️😵‍💫⚡" },
-            { threshold: 10000, emoji: "✨⚡️😱⚡✨" },
-        ],
-    });
-    obj.entries.friend_locket_count_config = JSON.stringify({
-        items: [
-            { threshold: 0, icon_name: "heart" },
-            { threshold: 1, icon_name: "heart.fill" },
-            { threshold: 10, emoji: "🤍" },
-            { threshold: 100, emoji: "💛" },
-            { threshold: 500, emoji: "❤️‍🔥" },
-            { threshold: 1000, emoji: "✨💗✨" },
-            { threshold: 2000, emoji: "✨️⭐️✨" },
-            { threshold: 5000, emoji: "✨💎✨" },
-            { threshold: 10000, emoji: "✨🔐💛✨" },
-        ],
-    });
     obj.entries.rollcall_enabled = "true";
     obj.entries.rollcall_comment_actions = "true";
     obj.entries.rollcall_profile_button = "true";
