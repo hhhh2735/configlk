@@ -49,10 +49,10 @@ if (ua.includes("Locket")) {
     obj.entries.show_friend_limit_on_cam = "false";
     obj.entries.signup_max_friends_count = "9999";
     obj.entries.celebrity_inbox_limit = "9999";
-    obj.entries.friend_limit_geo_override = JSON.stringify({experiments: {}, area_code_overrides: {},});
+    obj.entries.friend_limit_geo_override = JSON.stringify({ experiments: {}, area_code_overrides: {}, });
     obj.entries.overlay_dynamic_captions = JSON.stringify(["standard", "location", "weather", "time",]);
     obj.entries.overlay_navigator_enabled = "true";
-    obj.entries.overlays_v2_config = JSON.stringify({suggestions_enabled: true,});
+    obj.entries.overlays_v2_config = JSON.stringify({ suggestions_enabled: true, });
     obj.entries.captions_enabled = "true";
     obj.entries.music_caption_enabled = "true";
     obj.entries.music_caption_song_preview_enabled = "true";
@@ -282,6 +282,72 @@ if (ua.includes("Locket")) {
                         max_lines: 1,
                         text: "Locket Quay 10s của Bui Hai",
                         text_color: "#633B24",
+                        type: "static_content",
+                    },
+                },
+                {
+                    overlay_id: "caption:themdit",
+                    source: "remote",
+                    caption: {
+                        background: { colors: ["#b6d3c0", "#f83e3e", "#e2507c"], },
+                        max_lines: 1,
+                        text: "Thìn Đẹp",
+                        text_color: "#e0aa8b",
+                        type: "static_content",
+                    },
+                },
+                {
+                    overlay_id: "caption:dichoi",
+                    source: "remote",
+                    caption: {
+                        background: { colors: ["#ec6b6b", "#28e4f1", "#c359f5"], },
+                        max_lines: 1,
+                        text: "Đi chơi không ae ?",
+                        text_color: "#a149ca",
+                        type: "static_content",
+                    },
+                },
+                {
+                    overlay_id: "caption:nl",
+                    source: "remote",
+                    caption: {
+                        background: { colors: ["#fa4747", "#FFF1A8", "#5b00ee"], },
+                        max_lines: 1,
+                        text: "Nứng Quá!",
+                        text_color: "#af7553",
+                        type: "static_content",
+                    },
+                },
+                {
+                    overlay_id: "caption:dcm",
+                    source: "remote",
+                    caption: {
+                        background: { colors: ["#d5fa03", "#FFF1A8", "#fc0f56"], },
+                        max_lines: 1,
+                        text: "Địt Cụ Cả Locket",
+                        text_color: "#792e03",
+                        type: "static_content",
+                    },
+                },
+                {
+                    overlay_id: "caption:nyy",
+                    source: "remote",
+                    caption: {
+                        background: { colors: ["#24ec88", "#FFF1A8", "#634f55"], },
+                        max_lines: 1,
+                        text: "Ốm Em Thiêu",
+                        text_color: "#472c1b",
+                        type: "static_content",
+                    },
+                },
+                {
+                    overlay_id: "caption:lay_bo",
+                    source: "remote",
+                    caption: {
+                        background: { colors: ["#FFD6A5", "#e2dab4", "#FFC4D6"], },
+                        max_lines: 1,
+                        text: "Lạy Bố",
+                        text_color: "#382222",
                         type: "static_content",
                     },
                 },
@@ -1201,7 +1267,11 @@ if (ua.includes("Locket")) {
             ],
         }
     ]);
+    obj.entries.gallery_video = "true";
+    obj.entries.video_upload = "true";
     obj.entries.camera_roll = JSON.stringify({
+        enabled: true,
+        gallery_video: true,
         flash_button: true,
         audio_button: true,
         video: true
@@ -1340,14 +1410,17 @@ if (ua.includes("Locket")) {
     obj.entries.widget_stale_state_enabled = "false";
     obj.entries.widget_last_sent_indicator = "false";
     obj.entries.widget_sync_token_reload_mode = "clearTokenNever";
-    obj.entries.widget_frame_event = JSON.stringify({
-        uid: "BuiHai2024",
-        url: "https://cdn.upanhlaylink.com/i/RuYKzIiU.png",
-        use_local_time_zone: true,
-        placement: "above",
-        start_at: "2024-01-01T00:00:00",
-        end_at: "2030-12-31T23:59:59"
-    });
+    obj.entries.custom_widget_frames = "true";
+    obj.entries.widget_frame_event = JSON.stringify([
+        {
+            uid: "BuiHai2024",
+            url: "https://cdn.upanhlaylink.com/i/RuYKzIiU.png",
+            use_local_time_zone: true,
+            placement: "above",
+            start_at: "2024-01-01T00:00:00",
+            end_at: "2030-12-31T23:59:59"
+        }
+    ]);
     obj.entries.cdn_domain_replacements = JSON.stringify({
         "firebasestorage.googleapis.com": "cdn.locketcamera.com",
     });
