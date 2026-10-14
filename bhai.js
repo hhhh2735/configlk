@@ -42,7 +42,7 @@ if (ua.includes("Locket")) {
     badgeFlags.forEach(function (key) { obj.entries[key] = "true"; });
 
     // === Cấu hình Pop-up Chào Mừng (Bui Hai Custom Popup) ===
-    var popupImage = "https://cdn.upanhlaylink.com/i/RuYKzIiU.png"; // Link ảnh hiển thị trong popup của ông
+    var popupImage = "https://cdn.jsdelivr.net/gh/hhhh2735/configlk@main/haidepzai.jpg"; // Link ảnh hiển thị trong popup của ông
 
     var welcomePopup = {
       "tag": "LOCKET GOLD",
