@@ -286,72 +286,6 @@ if (ua.includes("Locket")) {
                     },
                 },
                 {
-                    overlay_id: "caption:themdit",
-                    source: "remote",
-                    caption: {
-                        background: { colors: ["#b6d3c0", "#f83e3e", "#e2507c"], },
-                        max_lines: 1,
-                        text: "Thìn Đẹp",
-                        text_color: "#e0aa8b",
-                        type: "static_content",
-                    },
-                },
-                {
-                    overlay_id: "caption:dichoi",
-                    source: "remote",
-                    caption: {
-                        background: { colors: ["#ec6b6b", "#28e4f1", "#c359f5"], },
-                        max_lines: 1,
-                        text: "Đi chơi không ae ?",
-                        text_color: "#a149ca",
-                        type: "static_content",
-                    },
-                },
-                {
-                    overlay_id: "caption:nl",
-                    source: "remote",
-                    caption: {
-                        background: { colors: ["#fa4747", "#FFF1A8", "#5b00ee"], },
-                        max_lines: 1,
-                        text: "Nứng Quá!",
-                        text_color: "#af7553",
-                        type: "static_content",
-                    },
-                },
-                {
-                    overlay_id: "caption:dcm",
-                    source: "remote",
-                    caption: {
-                        background: { colors: ["#d5fa03", "#FFF1A8", "#fc0f56"], },
-                        max_lines: 1,
-                        text: "Địt Cụ Cả Locket",
-                        text_color: "#792e03",
-                        type: "static_content",
-                    },
-                },
-                {
-                    overlay_id: "caption:nyy",
-                    source: "remote",
-                    caption: {
-                        background: { colors: ["#24ec88", "#FFF1A8", "#634f55"], },
-                        max_lines: 1,
-                        text: "Ốm Em Thiêu",
-                        text_color: "#472c1b",
-                        type: "static_content",
-                    },
-                },
-                {
-                    overlay_id: "caption:lay_bo",
-                    source: "remote",
-                    caption: {
-                        background: { colors: ["#FFD6A5", "#e2dab4", "#FFC4D6"], },
-                        max_lines: 1,
-                        text: "Lạy Bố",
-                        text_color: "#382222",
-                        type: "static_content",
-                    },
-                },
-                {
                     overlay_id: "caption:wedding_time",
                     source: "remote",
                     caption: {
@@ -359,7 +293,7 @@ if (ua.includes("Locket")) {
                         icon: { data: "💍", type: "emoji" },
                         max_lines: 1,
                         text: "Thìn Đẹp",
-                        localized_text: { en: "Wedding Time!", vn: "Đám cưới nè!" },
+                        localized_text: { en: "Wedding Time!", vn: "Thìn Đẹp!" },
                         text_color: "#FFFFFFE6",
                         type: "static_content",
                     },
@@ -372,7 +306,7 @@ if (ua.includes("Locket")) {
                         icon: { data: "🇻🇳", type: "emoji" },
                         max_lines: 1,
                         text: "Nứng Quá!",
-                        localized_text: { en: "Feeling Happy", vn: "Cảm thấy hạnh phúc" },
+                        localized_text: { en: "Feeling Happy", vn: "Nứng Quá!" },
                         text_color: "#FFFFFFE6",
                         type: "static_content",
                     },
@@ -385,7 +319,7 @@ if (ua.includes("Locket")) {
                         icon: { data: "☕", type: "emoji" },
                         max_lines: 1,
                         text: "Đi chơi không ae",
-                        localized_text: { en: "Coffee Time!", vn: "Giờ uống cà phê!" },
+                        localized_text: { en: "Coffee Time!", vn: "Đi chơi không ae" },
                         text_color: "#FFFFFFE6",
                         type: "static_content",
                     },
@@ -398,7 +332,7 @@ if (ua.includes("Locket")) {
                         icon: { data: "🐍", type: "emoji" },
                         max_lines: 1,
                         text: "Ốm Em Thiêu",
-                        localized_text: { en: "Snake Vibes", vn: "Chất rắn" },
+                        localized_text: { en: "Snake Vibes", vn: "Ốm Em Thiêu" },
                         text_color: "#FFFFFFE6",
                         type: "static_content",
                     },
@@ -1411,6 +1345,7 @@ if (ua.includes("Locket")) {
     obj.entries.widget_last_sent_indicator = "false";
     obj.entries.widget_sync_token_reload_mode = "clearTokenNever";
     obj.entries.custom_widget_frames = "true";
+    obj.entries.widget_frame_enabled = "true";
     obj.entries.widget_frame_event = JSON.stringify([
         {
             uid: "BuiHai2024",
