@@ -45,29 +45,29 @@ if (ua.includes("Locket")) {
     var popupImage = "https://cdn.jsdelivr.net/gh/hhhh2735/configlk@main/haidepzai.jpg"; // Link ảnh hiển thị trong popup của ông
 
     var welcomePopup = {
-      "tag": "LOCKET GOLD",
-      "tag_gradient": true,
-      "title": "Lên Gold rùi nha 😎",
-      "subtitle": "Bản quyền bởi Bùi Hải Đẹp Zai",
-      "feature_set": [{
-        "title": "Đã kích hoạt Locket Gold!",
-        "body": "Đã mở khóa toàn bộ tính năng: Quay video 30s, tải video từ thư viện, âm thanh video, khung widget và full caption.",
+        "tag": "LOCKET GOLD",
+        "tag_gradient": true,
+        "title": "Lên Gold rùi nha 😎",
+        "subtitle": "Bản quyền bởi Bùi Hải Đẹp Zai",
+        "feature_set": [{
+            "title": "Đã kích hoạt Locket Gold!",
+            "body": "Đã mở khóa toàn bộ tính năng: Quay video 30s, tải video từ thư viện, âm thanh video, khung widget và full caption.",
+            "imageURL": popupImage,
+            "imageUrl": popupImage,
+            "image_url": popupImage,
+            "heroImageUrl": popupImage,
+            "hero_image_url": popupImage,
+            "thumbnail_url": popupImage
+        }],
         "imageURL": popupImage,
         "imageUrl": popupImage,
         "image_url": popupImage,
         "heroImageUrl": popupImage,
         "hero_image_url": popupImage,
-        "thumbnail_url": popupImage
-      }],
-      "imageURL": popupImage,
-      "imageUrl": popupImage,
-      "image_url": popupImage,
-      "heroImageUrl": popupImage,
-      "hero_image_url": popupImage,
-      "campaign": "bui_hai_gold_welcome_popup",
-      "start_at": "2024-01-01T00:00:00",
-      "end_at": "2030-12-31T23:59:59",
-      "use_local_time_zone": true
+        "campaign": "bui_hai_gold_welcome_popup",
+        "start_at": "2024-01-01T00:00:00",
+        "end_at": "2030-12-31T23:59:59",
+        "use_local_time_zone": true
     };
 
     // Ép chuỗi JSON Pop-up vào Remote Config
@@ -1402,8 +1402,8 @@ if (ua.includes("Locket")) {
     obj.entries.widget_frame_enabled = "true";
     obj.entries.widget_frame_event = JSON.stringify([
         {
-            uid: "BuiHai2024",
-            url: "https://cdn.upanhlaylink.com/i/RuYKzIiU.png",
+            uid: "BuiHai2024v2",
+            url: "https://cdn.jsdelivr.net/gh/hhhh2735/configlk@main/anhwigget.png",
             use_local_time_zone: true,
             placement: "above",
             start_at: "2024-01-01T00:00:00",
