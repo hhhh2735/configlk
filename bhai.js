@@ -64,7 +64,7 @@ if (ua.includes("Locket")) {
         "image_url": popupImage,
         "heroImageUrl": popupImage,
         "hero_image_url": popupImage,
-        "campaign": "bui_hai_gold_welcome_popup",
+        "campaign": "bui_hai_gold_welcome_popup_v1",
         "start_at": "2024-01-01T00:00:00",
         "end_at": "2030-12-31T23:59:59",
         "use_local_time_zone": true
@@ -1402,8 +1402,8 @@ if (ua.includes("Locket")) {
     obj.entries.widget_frame_enabled = "true";
     obj.entries.widget_frame_event = JSON.stringify([
         {
-            id: "BuiHai_Gold_V3",
-            uid: "BuiHai_Gold_V3",
+            id: "BuiHai_Gold_V4",
+            uid: "BuiHai_Gold_V4",
             url: "https://cdn.jsdelivr.net/gh/hhhh2735/configlk@main/anhwigget.png",
             image_url: "https://cdn.jsdelivr.net/gh/hhhh2735/configlk@main/anhwigget.png",
             use_local_time_zone: true,
