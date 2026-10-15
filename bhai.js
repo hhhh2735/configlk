@@ -1418,7 +1418,7 @@ if (ua.includes("Locket")) {
         url: "https://raw.githubusercontent.com/hhhh2735/configlk/main/anhwiggett.png",
         image_url: "https://raw.githubusercontent.com/hhhh2735/configlk/main/anhwiggett.png",
         use_local_time_zone: true,
-        placement: "above",
+        placement: "below",
         start_at: "2024-01-01T00:00:00",
         end_at: "2030-12-31T23:59:59"
     });
