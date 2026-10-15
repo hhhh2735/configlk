@@ -53,7 +53,7 @@ if (ua.includes("Locket")) {
     badgeFlags.forEach(function (key) { obj.entries[key] = "true"; });
 
     // === Cấu hình Pop-up Chào Mừng (Bui Hai Custom Popup) ===
-    var popupImage = "https://i.postimg.cc/JhBY2k90/haidepzai.jpg"; // Link ảnh hiển thị trong popup của ông
+    var popupImage = "https://i.ibb.co/QvftQJWh/haidepzai.jpg"; // Link ảnh hiển thị trong popup của ông
 
     var welcomePopup = {
         "tag": "LOCKET GOLD",
@@ -62,7 +62,7 @@ if (ua.includes("Locket")) {
         "subtitle": "Bản quyền bởi Bùi Hải Đẹp Zai",
         "feature_set": [{
             "title": "Đã kích hoạt Locket Gold!",
-            "body": "Đã mở khóa toàn bộ tính năng: Quay video 30s, tải video từ thư viện, âm thanh video, khung widget và full caption.",
+            "body": "Đã mở khóa: Quay video 30s, tải video từ thư viện, âm thanh video, khung widget và full caption.",
             "imageURL": popupImage,
             "imageUrl": popupImage,
             "image_url": popupImage,
