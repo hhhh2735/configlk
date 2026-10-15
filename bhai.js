@@ -371,7 +371,7 @@ if (ua.includes("Locket")) {
                     caption: {
                         background: { colors: ["#FFD6A5", "#FFF1A8", "#FFC4D6"], },
                         max_lines: 1,
-                        text: "Locket Quay 10s của Bui Hai",
+                        text: "Locket Quay 30s của Bui Hai",
                         text_color: "#633B24",
                         type: "static_content",
                     },
