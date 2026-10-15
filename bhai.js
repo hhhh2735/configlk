@@ -1419,7 +1419,7 @@ if (ua.includes("Locket")) {
         //url: "https://i.postimg.cc/c172Wf6B/anhwiggett.png",
         url: "https://i.ibb.co/cXQq3rSQ/anhwiggett.png",
         use_local_time_zone: true,
-        placement: "below",
+        placement: "above",
         start_at: "2023-01-01T00:00:00",
         end_at: "2030-12-31T23:59:59"
     });
