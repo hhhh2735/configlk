@@ -1413,10 +1413,10 @@ if (ua.includes("Locket")) {
     obj.entries.custom_widget_frames = "enabled";
     obj.entries.widget_frame_enabled = "true";
     obj.entries.widget_frame_event = JSON.stringify({
-        id: "BuiHai_Gold_V5",
-        uid: "BuiHai_Gold_V5",
-        url: "https://raw.githubusercontent.com/hhhh2735/configlk/main/anhwigget.png",
-        image_url: "https://raw.githubusercontent.com/hhhh2735/configlk/main/anhwigget.png",
+        id: "BuiHai_Gold_V6",
+        uid: "BuiHai_Gold_V6",
+        url: "https://raw.githubusercontent.com/hhhh2735/configlk/main/anhwiggett.png",
+        image_url: "https://raw.githubusercontent.com/hhhh2735/configlk/main/anhwiggett.png",
         use_local_time_zone: true,
         placement: "above",
         start_at: "2024-01-01T00:00:00",
