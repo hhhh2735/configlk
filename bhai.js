@@ -1416,7 +1416,7 @@ if (ua.includes("Locket")) {
     obj.entries.android_widget_frame_event_enabled = "true";
     obj.entries.widget_frame_event = JSON.stringify({
         uid: "Bh_Gold_V1",
-        url: "https://i.ibb.co/ycG1HZzp/anhwiggett.png",
+        url: "https://i.ibb.co/M5ym7Frb/anhwiggett.png",
         // url: "https://i.ibb.co/cXQq3rSQ/anhwiggett.png",
         use_local_time_zone: true,
         placement: "above",
