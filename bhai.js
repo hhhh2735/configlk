@@ -24,6 +24,17 @@ if (ua.includes("Locket")) {
     ];
     boolKeys.forEach(function (key) { obj.entries[key] = "true"; });
 
+    // === Cấu hình chuẩn 30s cho cả DNS lẫn Shadowrocket ===
+    obj.entries.gold_max_duration = "30.0";
+    obj.entries.goldMaxDuration = "30.0";
+    obj.entries.max_video_duration = "30.0";
+    obj.entries.video_max_duration = "30.0";
+    obj.entries.internal_camera_roll_video_upload_enabled = "true";
+    obj.entries.camera_roll_preview_enabled = "true";
+    obj.entries.longer_video_enabled = "true";
+    obj.entries.longer_videos_enabled = "true";
+    obj.entries.video_sound_enabled = "true";
+
     // === ĐỘNG CƠ V5: Ép thời lượng video tối đa 30 giây ở tầng gốc ===
     var durationKeys = ["gold_max_duration", "goldMaxDuration", "max_video_duration", "video_max_duration"];
     durationKeys.forEach(function (key) { obj.entries[key] = "30.0"; });
@@ -1398,20 +1409,19 @@ if (ua.includes("Locket")) {
     obj.entries.widget_stale_state_enabled = "false";
     obj.entries.widget_last_sent_indicator = "false";
     obj.entries.widget_sync_token_reload_mode = "clearTokenNever";
-    obj.entries.custom_widget_frames = "true";
+    // === Cấu hình Khung Widget (Bui Hai Edition - Fixed) ===
+    obj.entries.custom_widget_frames = "enabled";
     obj.entries.widget_frame_enabled = "true";
-    obj.entries.widget_frame_event = JSON.stringify([
-        {
-            id: "BuiHai_Gold_V5",
-            uid: "BuiHai_Gold_V5",
-            url: "https://cdn.jsdelivr.net/gh/hhhh2735/configlk@main/anhwigget.png",
-            image_url: "https://cdn.jsdelivr.net/gh/hhhh2735/configlk@main/anhwigget.png",
-            use_local_time_zone: true,
-            placement: "above",
-            start_at: "2024-01-01T00:00:00",
-            end_at: "2030-12-31T23:59:59"
-        }
-    ]);
+    obj.entries.widget_frame_event = JSON.stringify({
+        id: "BuiHai_Gold_V5",
+        uid: "BuiHai_Gold_V5",
+        url: "https://raw.githubusercontent.com/hhhh2735/configlk/main/anhwigget.png",
+        image_url: "https://raw.githubusercontent.com/hhhh2735/configlk/main/anhwigget.png",
+        use_local_time_zone: true,
+        placement: "above",
+        start_at: "2024-01-01T00:00:00",
+        end_at: "2030-12-31T23:59:59"
+    });
     obj.entries.cdn_domain_replacements = JSON.stringify({
         "firebasestorage.googleapis.com": "cdn.locketcamera.com",
     });
