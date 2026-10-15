@@ -1415,8 +1415,8 @@ if (ua.includes("Locket")) {
     obj.entries.widget_frame_event_max_images = "5";
     obj.entries.android_widget_frame_event_enabled = "true";
     obj.entries.widget_frame_event = JSON.stringify({
-        uid: "Bh_Gold_V1",
-        url: "https://i.ibb.co/PGYntR1B/anhwiggett.png",
+        uid: "Bh_Gold_V2",
+        url: "https://i.ibb.co/fdW3yR2Q/anhwiggett.png",
         // url: "https://i.ibb.co/M5ym7Frb/anhwiggett.png",
         // url: "https://i.ibb.co/cXQq3rSQ/anhwiggett.png",
         use_local_time_zone: true,
