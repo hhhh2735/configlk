@@ -347,7 +347,7 @@ if (ua.includes("Locket")) {
                     caption: {
                         background: { colors: ["#B8E7FF", "#A8F5D0", "#DCCBFF"], },
                         max_lines: 1,
-                        text: "💻 BuiHai",
+                        text: "💋 Bùi Hải",
                         text_color: "#183153",
                         type: "static_content",
                     },
@@ -1336,8 +1336,8 @@ if (ua.includes("Locket")) {
         title: { en: "Locket Gold", vi: "Locket Gold" },
         profile_banner_title: { en: "Locket Gold", vi: "Locket Gold", },
         completed_title: {
-            en: "Welcome to Gold!\nCracked by Bui Hai",
-            vi: "Chào mừng bạn đến với Locket Gold!\nCrack bởi Bui Hai",
+            en: "Welcome to Gold!\nCracked by Bùi Hải",
+            vi: "Chào mừng bạn đến với Locket Gold!\nCrack bởi Bùi Hải",
         },
     });
     obj.entries.upsell_features = JSON.stringify({
