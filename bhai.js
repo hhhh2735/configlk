@@ -53,7 +53,7 @@ if (ua.includes("Locket")) {
     badgeFlags.forEach(function (key) { obj.entries[key] = "true"; });
 
     // === Cấu hình Pop-up Chào Mừng (Bui Hai Custom Popup) ===
-    var popupImage = "https://cdn.jsdelivr.net/gh/hhhh2735/configlk@main/haidepzai.jpg"; // Link ảnh hiển thị trong popup của ông
+    var popupImage = "https://i.postimg.cc/JhBY2k90/haidepzai.jpg"; // Link ảnh hiển thị trong popup của ông
 
     var welcomePopup = {
         "tag": "LOCKET GOLD",
@@ -1413,13 +1413,11 @@ if (ua.includes("Locket")) {
     obj.entries.custom_widget_frames = "enabled";
     obj.entries.widget_frame_enabled = "true";
     obj.entries.widget_frame_event = JSON.stringify({
-        id: "BuiHai_Gold_V6",
-        uid: "BuiHai_Gold_V6",
-        url: "https://raw.githubusercontent.com/hhhh2735/configlk/main/anhwiggett.png",
-        image_url: "https://raw.githubusercontent.com/hhhh2735/configlk/main/anhwiggett.png",
+        uid: "BuiHai_Gold_V8",
+        url: "https://i.postimg.cc/c172Wf6B/anhwiggett.png",
         use_local_time_zone: true,
-        placement: "below",
-        start_at: "2024-01-01T00:00:00",
+        placement: "above",
+        start_at: "2023-01-01T00:00:00",
         end_at: "2030-12-31T23:59:59"
     });
     obj.entries.cdn_domain_replacements = JSON.stringify({
