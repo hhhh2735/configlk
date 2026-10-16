@@ -1,14 +1,13 @@
 // ============================================================
-// Locket Remote Config Rewrite (Bui Hai Ultimate V5)
+// Locket Remote Config Rewrite (Bui Hai Ultimate V5 - Full Filters & Video Fix)
 // Endpoint: firebaseremoteconfig.googleapis.com
-// Tác giả: Bui Hai (Merged with V5 Engine)
 // ============================================================
 
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"] || "";
 var obj = JSON.parse($response.body);
 
 if (ua.includes("Locket")) {
-    obj.Attention = "Bản quyền thuộc về Bui Hai!";
+    obj.Attention = "Bản quyền thuộc về Bùi Hải!";
 
     // === ĐỘNG CƠ V5: Ép cờ boolean mở khóa video, album & gold ===
     var boolKeys = [
@@ -75,7 +74,7 @@ if (ua.includes("Locket")) {
         "image_url": popupImage,
         "heroImageUrl": popupImage,
         "hero_image_url": popupImage,
-        "campaign": "bui_hai_gold_welcome_popup_v1",
+        "campaign": "bui_hai_gold_welcome_popup_v2",
         "start_at": "2024-01-01T00:00:00",
         "end_at": "2030-12-31T23:59:59",
         "use_local_time_zone": true
@@ -112,9 +111,35 @@ if (ua.includes("Locket")) {
             camera.goldMaxDuration = 30;
             camera.gallery_video = true;
             camera.video = true;
+            camera.quality_mbps = 0.9;
             obj.entries.camera = JSON.stringify(camera);
         }
     } catch (e2) { }
+
+    // === TÍCH HỢP MỚI: BỘ LỌC CAMERA (CAMERA FILTERS CONFIG) ===
+    obj.entries.camera_filter_config = JSON.stringify({
+        allows_custom_filters: true,
+        show_filter_button: true,
+        sheet_enabled: true,
+        open_sheet_immediately: true,
+        sheet_filters: [
+            { title: { en: "Goofy" }, filter_ids: ["okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows"] },
+            { title: { en: "Looks" }, filter_ids: ["bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns", "tatted", "mohawk", "braces", "bye_brows"] },
+            { title: { en: "Celebrate" }, filter_ids: ["slimed", "princess", "disco_lights", "cash_money", "happy_birthday"] },
+            { title: { en: "Cute" }, filter_ids: ["cutesy", "sticker_face", "flower_crown", "love_bug"] },
+            { title: { en: "Costumes" }, filter_ids: ["wedding", "cowboy_cowgirl", "giraffe", "clown"] },
+            { title: { en: "Holidays" }, filter_ids: ["easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun", "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"] }
+        ],
+        picker_filters: [
+            "okay_wig", "influencer", "looks_maxxing", "toothless", "bye_brows",
+            "bowling_ball", "blonde_bleached", "beard", "bob_cut", "buns",
+            "tatted", "mohawk", "braces", "slimed", "princess",
+            "disco_lights", "cash_money", "happy_birthday", "cutesy", "sticker_face",
+            "flower_crown", "love_bug", "wedding", "cowboy_cowgirl", "giraffe",
+            "clown", "easter_bunney_cutout", "easter_chick_cutout", "bearded", "leprechaun",
+            "lucky_face", "sweet_hearts", "elf_cutout", "santa_cutout", "frosty"
+        ]
+    });
 
     obj.entries.history_ads_mode = "off";
     obj.entries.history_ads_prefetch_count = "0";
@@ -1293,6 +1318,7 @@ if (ua.includes("Locket")) {
         }
     ]);
 
+    // === FIX TRIỆT ĐỂ LỖI UPLOAD THƯ VIỆN VIDEO (9s, 3s, file ngoài, v.v.) ===
     obj.entries.gallery_video = "true";
     obj.entries.video_upload = "true";
     obj.entries.camera_roll = JSON.stringify({
@@ -1300,8 +1326,29 @@ if (ua.includes("Locket")) {
         gallery_video: true,
         flash_button: true,
         audio_button: true,
-        video: true
+        video: true,
+        gold_max_duration: 30.0,
+        goldMaxDuration: 30.0,
+        video_max_duration: 30.0,
+        videoMaxDuration: 30.0,
+        max_duration: 30.0,
+        maxDuration: 30.0,
+        trim_max_duration: 30.0,
+        trimMaxDuration: 30.0,
+        camera_roll_max_duration: 30.0,
+        quality_mbps: 0.9,
+        qualityMbps: 0.9
     });
+
+    obj.entries.camera_roll_video_enabled = "true";
+    obj.entries.camera_roll_video_upload_enabled = "true";
+    obj.entries.internal_camera_roll_video_upload_enabled = "true";
+    obj.entries.longer_camera_roll_videos_enabled = "true";
+    obj.entries.camera_roll_video_max_duration = "30.0";
+    obj.entries.camera_roll_max_duration = "30.0";
+    obj.entries.video_quality_mbps = "0.9";
+    obj.entries.upload_main = "false"; // Tự động nén chuẩn format qua tầng trung gian để không bao giờ bị báo lỗi "Thử lại"
+
     obj.entries.live_photos = JSON.stringify({
         capture: true,
         viewing: true,
@@ -1309,10 +1356,9 @@ if (ua.includes("Locket")) {
         widget_looping_mode: "never",
     });
     obj.entries.camera_roll_preview_enabled = "true";
-    obj.entries.upload_main = "true";
-    obj.entries.upload_main_image_quality = "1.0";
+    obj.entries.upload_main_image_quality = "0.8";
     obj.entries.upload_main_image_size = "1440";
-    obj.entries.upload_thumbnail_image_quality = "1.0";
+    obj.entries.upload_thumbnail_image_quality = "0.8";
     obj.entries.upload_thumbnail_image_size = "1020";
     obj.entries.qr_code_config = JSON.stringify({
         profile_enabled: true,
@@ -1409,16 +1455,15 @@ if (ua.includes("Locket")) {
     obj.entries.widget_stale_state_enabled = "false";
     obj.entries.widget_last_sent_indicator = "false";
     obj.entries.widget_sync_token_reload_mode = "clearTokenNever";
+    
     // === Cấu hình Khung Widget (Bui Hai Edition - Fixed) ===
     obj.entries.custom_widget_frames = "enabled";
     obj.entries.widget_frame_enabled = "true";
     obj.entries.widget_frame_event_max_images = "5";
     obj.entries.android_widget_frame_event_enabled = "true";
     obj.entries.widget_frame_event = JSON.stringify({
-        uid: "Bh_Gold_V2",
+        uid: "Bh_Gold_V3",
         url: "https://i.ibb.co/fdW3yR2Q/anhwiggett.png",
-        // url: "https://i.ibb.co/M5ym7Frb/anhwiggett.png",
-        // url: "https://i.ibb.co/cXQq3rSQ/anhwiggett.png",
         use_local_time_zone: true,
         placement: "above",
         start_at: "2023-01-01T00:00:00",
