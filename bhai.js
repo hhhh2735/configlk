@@ -2,6 +2,7 @@
 // Locket Remote Config Rewrite (Bui Hai Ultimate V7 - All-in-One Master)
 // Endpoint: firebaseremoteconfig.googleapis.com
 // Dùng cho: Loon / Quantumult X / Surge / Shadowrocket
+// Cre : DuyVinh09
 // ============================================================
 
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"] || "";
