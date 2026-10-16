@@ -20,6 +20,10 @@ if (ua.includes("Locket")) {
         gold_member: "true",
         gold_membership: "true",
         feature_gates: JSON.stringify({
+            camera_filter: "enabled",
+            camera_filters: "enabled",
+            filters: "enabled",
+            face_filters: "enabled",
             app_icon_picker: "enabled",
             camera_roll: "enabled",
             camera_theme: "enabled",
@@ -35,6 +39,8 @@ if (ua.includes("Locket")) {
             streak_recovery: "enabled"
         }),
         upsell_features: JSON.stringify({
+            camera_filter: true,
+            camera_filters: true,
             app_icon_picker: true,
             camera_roll: true,
             camera_theme: true,
@@ -75,7 +81,12 @@ if (ua.includes("Locket")) {
         locket_gold_badge_small: "true",
         gold_membership_card: "true",
         android_subscribe_gold_button_enabled: "false",
-        lunar_new_year_app_icon_enabled: "true"
+        lunar_new_year_app_icon_enabled: "true",
+        camera_filter_enabled: "true",
+        camera_filters_enabled: "true",
+        filters_enabled: "true",
+        face_filters_enabled: "true",
+        filter_button_enabled: "true",
     });
 
     // ============================================================
@@ -179,7 +190,7 @@ if (ua.includes("Locket")) {
         trim_max_duration: "30.0",
         gold_max_duration: "30.0",
         goldMaxDuration: "30.0",
-        video_quality_mbps: "0.9",
+        video_quality_mbps: "0.6",
         video_sound_enabled: "true",
         microphone_enabled: "true",
         camera_microphone_enabled: "true",
@@ -252,7 +263,7 @@ if (ua.includes("Locket")) {
         streak.minimum_recovery_count = 0;
         streak.minimum_display_count = 0;
         obj.entries.streak_config = JSON.stringify(streak);
-    } catch (e) {}
+    } catch (e) { }
 
     Object.assign(obj.entries, {
         moment_views_enabled: "true",
