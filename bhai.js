@@ -2,7 +2,7 @@
 // Locket Remote Config Rewrite (Bui Hai Ultimate V8 - MASTER FULL)
 // Endpoint: firebaseremoteconfig.googleapis.com
 // Dùng cho: Loon / Quantumult X / Surge / Shadowrocket
-// Bản quyền: Bùi Hải (Tổng hợp full cải tiến mới nhất)
+// Cre : duyvinh09
 // ============================================================
 
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"] || "";
@@ -15,7 +15,7 @@ try {
 }
 
 if (ua.includes("Locket")) {
-    obj.Attention = "Bản quyền thuộc về Bùi Hải!";
+    obj.Attention = "Bùi Hải!";
     obj.entries = obj.entries || {};
 
     // ============================================================
