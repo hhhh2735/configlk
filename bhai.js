@@ -445,7 +445,7 @@ if (ua.includes("Locket")) {
                 section: "🎨 Decorative by Bui Hai",
                 items: [
                     { overlay_id: "caption:buihai", source: "remote", caption: { background: { colors: ["#B8E7FF", "#A8F5D0", "#DCCBFF"] }, max_lines: 1, text: "💋 Bùi Hải", text_color: "#183153", type: "static_content" } },
-                    { overlay_id: "caption:vua", source: "remote", caption: { background: { colors: ["#FFD6A5", "#FFF1A8", "#FFC4D6"] }, max_lines: 1, text: "Locket 30s của Bùi Hải", text_color: "#633B24", type: "static_content" } },
+                    { overlay_id: "caption:vua", source: "remote", caption: { background: { colors: ["#FFD6A5", "#FFF1A8", "#FFC4D6"] }, max_lines: 1, text: "Locket 60s của Bùi Hải", text_color: "#633B24", type: "static_content" } },
                     { overlay_id: "caption:vua1", source: "remote", caption: { background: { colors: ["#f000a8", "#0f9b3e", "#FFC4D6"] }, max_lines: 1, text: "Lạy Bố", text_color: "#1b2e1e", type: "static_content" } },
                     { overlay_id: "caption:vua2", source: "remote", caption: { background: { colors: ["#FFD6A5", "#0dd387", "#FFC4D6"] }, max_lines: 1, text: "Địt Cụ Locket", text_color: "#46060f", type: "static_content" } },
                     { overlay_id: "caption:vua3", source: "remote", caption: { background: { colors: ["#ff0000", "#FFF1A8", "#8b27dd"] }, max_lines: 1, text: "Ra Dại", text_color: "#105023", type: "static_content" } },
