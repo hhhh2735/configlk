@@ -191,15 +191,30 @@ if (ua.includes("Locket")) {
     });
 
     // ============================================================
-    // ÉP BẬT NÚT FILTER NHƯNG ĐỂ NGUYÊN DANH SÁCH FILTER CỦA SERVER MỸ
+    // CẤU HÌNH BẬT NÚT FILTER & DANH SÁCH FILTER CHUẨN
     // ============================================================
-    try {
-        var filterConfig = JSON.parse(obj.entries.camera_filter_config || "{}");
-        filterConfig.show_filter_button = true;
-        filterConfig.allows_custom_filters = true;
-        filterConfig.sheet_enabled = true;
-        obj.entries.camera_filter_config = JSON.stringify(filterConfig);
-    } catch (e) {}
+    obj.entries.camera_filter_enabled = "true";
+    obj.entries.camera_filters_enabled = "true";
+    obj.entries.filters_enabled = "true";
+    obj.entries.face_filters_enabled = "true";
+    obj.entries.filter_button_enabled = "true";
+
+    obj.entries.camera_filter_config = JSON.stringify({
+        allows_custom_filters: true,
+        show_filter_button: true,
+        sheet_enabled: true,
+        open_sheet_immediately: false,
+        picker_filters: [
+            "cutesy", "flower_crown", "sticker_face", "love_bug",
+            "blonde_bleached", "beard", "bob_cut", "buns", "braces",
+            "okay_wig", "influencer", "looks_maxxing", "toothless"
+        ],
+        sheet_filters: [
+            { title: { en: "Cute" }, filter_ids: ["cutesy", "flower_crown", "sticker_face", "love_bug"] },
+            { title: { en: "Looks" }, filter_ids: ["blonde_bleached", "beard", "bob_cut", "buns", "braces"] },
+            { title: { en: "Goofy" }, filter_ids: ["okay_wig", "influencer", "looks_maxxing", "toothless"] }
+        ]
+    });
 
     // ============================================================
     // 4. BẠN BÈ, CỘT MỐC GỬI LOCKET & ĐỀ XUẤT
