@@ -40,6 +40,8 @@ if (ua.includes("Locket")) {
         face_filters_enabled: "true",
         filter_button_enabled: "true",
         feature_gates: JSON.stringify({
+            camera_filter: "enabled",
+            camera_filters: "enabled",
             video_upload: "enabled",
             gallery_video: "enabled",
             longerVideo: "enabled",
@@ -58,8 +60,8 @@ if (ua.includes("Locket")) {
             streak_recovery: "enabled"
         }),
         upsell_features: JSON.stringify({
-            camera_filter: true,
-            camera_filters: true,
+            camera_filter: false,
+            camera_filters: false,
             app_icon_picker: true,
             camera_roll: true,
             camera_theme: true,
@@ -204,6 +206,8 @@ if (ua.includes("Locket")) {
         show_filter_button: true,
         sheet_enabled: true,
         open_sheet_immediately: false,
+        requires_gold: false,
+        gold_only: false,
         picker_filters: [
             "cutesy", "flower_crown", "sticker_face", "love_bug",
             "blonde_bleached", "beard", "bob_cut", "buns", "braces",
